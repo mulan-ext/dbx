@@ -28,7 +28,7 @@ func New(cfg *db.Config) (*gorm.DB, error) {
 			DefaultStringSize:      255,
 			DontSupportRenameIndex: true,
 		})
-		return db.New(dialector, cfg.Conn, gormCfg)
+		return db.New(dialector, cfg, gormCfg)
 	case "postgres":
 		dialector = postgres.New(postgres.Config{
 			DSN:                  cfg.String(),
@@ -39,5 +39,5 @@ func New(cfg *db.Config) (*gorm.DB, error) {
 	default:
 		return nil, errors.New("unsupported scheme: " + _dsn.Scheme)
 	}
-	return db.New(dialector, cfg.Conn, gormCfg)
+	return db.New(dialector, cfg, gormCfg)
 }
