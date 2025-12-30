@@ -34,7 +34,7 @@ func New(cfg *db.Config) (*gorm.DB, error) {
 			DSN:                  cfg.String(),
 			PreferSimpleProtocol: true,
 		})
-	case "sqlite":
+	case "sqlite", "sqlite3":
 		dialector = sqlite.Open(cfg.String())
 	default:
 		return nil, errors.New("unsupported scheme: " + _dsn.Scheme)
