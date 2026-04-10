@@ -18,7 +18,7 @@ type (
 
 type Model struct {
 	ID        uint64    `gorm:"primaryKey;autoIncrement;column:id"`
-	UUID      uuid.UUID `gorm:"type:uuid;unique;column:uuid;default:gen_random_uuid()"`
+	UUID      uuid.UUID `gorm:"type:uuid;unique;column:uuid"`
 	CreatedAt int64     `gorm:"autoCreateTime;column:created_at"`
 	UpdatedAt int64     `gorm:"autoUpdateTime;column:updated_at"`
 }
